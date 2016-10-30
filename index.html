@@ -1,17 +1,15 @@
-  <html>
+<html>
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <link rel="stylesheet" type="text/css" href="graph.css" />
     <div id = "chart_div" style="width: 900px; height: 500px"></div>
     <script>
     google.charts.load('current', {packages: ['corechart', 'line']});
-	google.charts.setOnLoadCallback(drawBackgroundColor);
-
+  google.charts.setOnLoadCallback(drawBackgroundColor);
 function drawBackgroundColor() {
       var data = new google.visualization.DataTable();
       data.addColumn('number', 'X');
       data.addColumn('number', 'Height');
-
       data.addRows([
         [0, 0],   [1, 10],  [2, 23],  [3, 17],  [4, 18],  [5, 9],
         [6, 11],  [7, 27],  [8, 33],  [9, 40],  [10, 32], [11, 35],
@@ -26,17 +24,22 @@ function drawBackgroundColor() {
         [60, 64], [61, 60], [62, 65], [63, 67], [64, 68], [65, 69],
         [66, 70], [67, 72], [68, 75], [69, 80]
       ]);
-
       var options = {
         hAxis: {
-          title: 'Time'
+          title: 'Time',
+          titleTextStyle: { color: '#FFF' },
+          textStyle:{color: '#FFFFFF'}
         },
         vAxis: {
-          title: 'Distance'
+          title: 'Distance',
+          titleTextStyle: {color: '#FFF'},
+          textStyle:{color: '#FFFFFF'}
+        },
+        legend: {
+          position: 'none'
         },
         backgroundColor:'#333333'
       };
-
       var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
       chart.draw(data, options);
     }
